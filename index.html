@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grounded Fitness — Black & Red Blog Template</title>
+
+<!-- Google Fonts mapped directly to your BRAND_GUIDELINES.md -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Lato:ital,wght@0,400;0,700;1,400&family=League+Spartan:wght@700;800&family=Merriweather:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    /* Brand Colors (Black & Red Focus) */
+    --grounded-black: #050505;    
+    --grounded-white: #FFFFFF;
+    --fog: #E5E5E5;               
+    
+    /* The core aesthetic */
+    --grounded-red: #EA4436;      /* Bold Athletic Red */
+    --red-hover: #D63C2F;         /* Slightly darker red for button hovers */
+    --dark-surface: #111111;      /* Cards and callout boxes */
+    --border-gray: #222222;       /* Subtle dividers */
+    --muted-gray: #9CA3AF;        /* Meta text and captions */
+    
+    /* Typography mapped from BRAND_GUIDELINES.md */
+    --font-heading: 'League Spartan', sans-serif;         /* Main headlines, bold and athletic */
+    --font-subheading: 'Barlow Condensed', sans-serif;    /* Section titles, date/time, tags */
+    --font-body: 'Lato', sans-serif;                      /* Warm, readable body copy */
+    --font-quote: 'Merriweather', serif;                  /* Human, emotional testimonials/pull-quotes */
+    
+    --maxread: 720px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--grounded-black);
+    color: var(--fog);
+    font-family: var(--font-body);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- SITE HEADER ---------- */
+  .site-header {
+    background: var(--grounded-black);
+    border-bottom: 1px solid var(--border-gray);
+    padding: 20px 0;
+  }
+  .site-header .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 24px;
+    color: var(--grounded-white);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .logo-icon {
+    width: 32px; height: 32px;
+    background: var(--grounded-red);
+    border-radius: 4px;
+  }
+
+  /* ---------- HERO (Single Image + Dark Scrim + League Spartan) ---------- */
+  .hero { position: relative; min-height: 560px; display: flex; align-items: flex-end; overflow: hidden; border-bottom: 2px solid var(--grounded-red); }
+  
+  .hero-img {
+    position: absolute; inset: 0;
+    background: radial-gradient(120% 90% at 70% 20%, #1a1a1a, #000000 70%);
+  }
+  .hero-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,5,5,.15) 0%, rgba(5,5,5,.6) 45%, rgba(5,5,5,1) 100%); }
+  
+  .hero-inner { position: relative; z-index: 2; padding: 56px 0 48px; max-width: 900px; }
+  
+  /* Chips / Categories */
+  .chip {
+    display: inline-flex; align-items: center; background: var(--grounded-red); color: var(--grounded-white);
+    font-family: var(--font-subheading); font-weight: 600; text-transform: uppercase; letter-spacing: .08em;
+    font-size: 15px; padding: 6px 16px; border-radius: 2px;
+  }
+  
+  /* Primary Headline: League Spartan */
+  h1.title {
+    font-family: var(--font-heading); font-weight: 700; color: var(--grounded-white);
+    font-size: clamp(42px, 6vw, 68px); line-height: 1.05; letter-spacing: -0.01em;
+    max-width: 16ch; margin-top: 20px; text-shadow: 0 2px 20px rgba(0,0,0,.8);
+  }
+  
+  .deck { color: #d1d5db; font-size: clamp(17px, 2.1vw, 21px); line-height: 1.5; max-width: 60ch; margin-top: 16px; }
+  
+  /* Meta / Author row */
+  .meta { display: flex; align-items: center; gap: 14px; margin-top: 26px; color: var(--muted-gray); font-size: 15px; font-family: var(--font-subheading); text-transform: uppercase; letter-spacing: 0.05em; }
+  .avatar { width: 44px; height: 44px; border-radius: 999px; background: var(--grounded-red); display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 700; color: var(--grounded-white); font-size: 18px; transition: transform 0.2s; }
+  
+  /* Author Link Hover */
+  .author-link { display: flex; align-items: center; gap: 14px; text-decoration: none; color: inherit; }
+  .author-link:hover .avatar { transform: scale(1.05); }
+  .author-link:hover b { color: var(--grounded-red); }
+
+  .meta .dot { width: 4px; height: 4px; border-radius: 999px; background: var(--muted-gray); display: inline-block; }
+  .meta b { color: var(--grounded-white); font-weight: 600; transition: color 0.2s; }
+
+  /* ---------- ARTICLE BODY (Lato & League Spartan) ---------- */
+  article { padding: 64px 0 40px; }
+  .read { max-width: var(--maxread); margin: 0 auto; }
+  .read p { font-size: 18.5px; margin: 0 0 24px; color: var(--fog); font-family: var(--font-body); }
+  
+  .read h2 {
+    font-family: var(--font-subheading); font-weight: 600; text-transform: uppercase;
+    color: var(--grounded-white); font-size: 32px; letter-spacing: .02em;
+    margin: 48px 0 20px; line-height: 1.1;
+  }
+  .read h2::before { content:""; display: block; width: 48px; height: 4px; background: var(--grounded-red); margin-bottom: 12px; border-radius: 2px; }
+  
+  .read ul { margin: 0 0 26px; padding-left: 0; list-style: none; }
+  .read li { position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 18.5px; }
+  .read li::before { content:""; position: absolute; left: 0; top: 11px; width: 8px; height: 8px; background: var(--grounded-red); border-radius: 0; }
+
+  blockquote {
+    margin: 40px 0; padding: 24px 32px; background: var(--dark-surface);
+    border-left: 4px solid var(--grounded-red); border-radius: 0 4px 4px 0;
+    font-family: var(--font-quote); font-style: italic; font-weight: 400; font-size: 22px; line-height: 1.6; color: var(--grounded-white);
+  }
+  blockquote cite { display: block; font-family: var(--font-subheading); text-transform: uppercase; font-style: normal; font-weight: 600; font-size: 16px; color: var(--grounded-red); margin-top: 16px; letter-spacing: 0.05em; }
+
+  .callout {
+    background: var(--dark-surface); border: 1px solid var(--border-gray); border-left: 4px solid var(--grounded-red);
+    border-radius: 4px; padding: 32px; margin: 40px 0; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+  }
+  .callout h4 { font-family: var(--font-heading); color: var(--grounded-white); font-size: 24px; margin-bottom: 8px; text-transform: uppercase; }
+  .callout p { font-size: 16px; color: var(--muted-gray); margin: 0; }
+  
+  .btn { display: inline-block; background: var(--grounded-red); color: var(--grounded-white); font-family: var(--font-heading); padding: 14px 28px; border-radius: 2px; font-size: 16px; transition: 0.2s; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em; }
+  .btn:hover { background: var(--red-hover); }
+
+  /* End CTA Banner */
+  .endcta { background: var(--dark-surface); margin-top: 64px; border-top: 1px solid var(--border-gray); border-bottom: 1px solid var(--border-gray); }
+  .endcta .inner { max-width: var(--maxread); margin: 0 auto; padding: 64px 0; text-align: center; }
+  .endcta h3 { font-family: var(--font-heading); color: var(--grounded-red); font-size: clamp(32px, 4vw, 48px); line-height: 1.1; margin-bottom: 16px; text-transform: uppercase;}
+  .endcta p { color: rgba(255,255,255,.9); margin: 0 0 32px; font-size: 18px; }
+
+  /* ---------- SITE FOOTER (Contact Info) ---------- */
+  .site-footer {
+    background: var(--grounded-black);
+    padding: 64px 0;
+    color: var(--muted-gray);
+    font-family: var(--font-body);
+    font-size: 16px;
+    text-align: center;
+  }
+  .site-footer h4 {
+    font-family: var(--font-heading);
+    color: var(--grounded-white);
+    font-size: 24px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  .site-footer p { margin-bottom: 8px; }
+  .site-footer a { color: var(--grounded-red); transition: color 0.2s; }
+  .site-footer a:hover { color: var(--grounded-white); }
+  .footer-divider {
+    width: 48px; height: 2px; background: var(--grounded-red); margin: 24px auto;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- GLOBAL HEADER (Replaced by Duda in production) -->
+<header class="site-header">
+  <div class="wrap">
+    <a href="https://www.groundedfitnessacadiana.com" class="logo">
+      <div class="logo-icon"></div>
+      Grounded Fitness
+    </a>
+    <a href="https://www.groundedfitnessacadiana.com" class="btn" style="padding: 10px 20px; font-size: 14px;">View Schedule</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-scrim"></div>
+  <div class="wrap hero-inner">
+    <div class="chip">The Ground Truth</div>
+    <h1 class="title">Stop Chasing Soreness: What Progress Actually Looks Like</h1>
+    <p class="deck">Feeling wrecked after every session isn't a badge of honor — and it's probably slowing you down. Here's how to tell real progress from just being tired.</p>
+    
+    <div class="meta">
+      <!-- AUTHOR LINK WRAPPER -->
+      <a href="https://www.groundedfitnessacadiana.com/coaches/tyler-hebert" class="author-link" title="Read Tyler's Bio">
+        <div class="avatar">TH</div>
+        <div>
+          <b>Tyler Hebert</b> &nbsp;·&nbsp; Coach, Grounded Fitness
+          <div style="color:var(--muted-gray);font-size:14px;margin-top:4px">Aug 20, 2026 <span class="dot"></span> 6 min read</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<article>
+  <div class="wrap">
+    <div class="read">
+      <p>If you judge a workout by how sore you are the next day, you're measuring the wrong thing. Soreness tells you something was unfamiliar — not that it was effective.</p>
+
+      <p>At Grounded, we get some version of this question every week: "Coach, I wasn't that sore — did I even do enough?" It's one of the most stubborn myths in fitness, and it quietly holds people back. Let's dig into what's actually happening in your body, and what to track instead.</p>
+
+      <h2>What Soreness Really Measures</h2>
+      <p>Delayed-onset muscle soreness (DOMS) shows up most when you do something new, or emphasize the lowering phase of a lift. That's why your first week back always hurts the most — and why the same workout barely touches you a month later, even though you're fitter. Adaptation is the goal, and adaptation means <em>less</em> soreness over time, not more.</p>
+
+      <blockquote>
+        Train to get better, not to get destroyed. Consistency beats intensity, one good hour at a time.
+        <cite>— Grounded Coaching Philosophy</cite>
+      </blockquote>
+
+      <h2>Four Signals That Actually Track Progress</h2>
+      <p>Instead of chasing wreckage, watch these. They're boring, they're measurable, and they're honest:</p>
+      <ul>
+        <li><strong>Load over time.</strong> Same movement, more weight or reps than a month ago.</li>
+        <li><strong>Recovery speed.</strong> Your heart rate settles faster between efforts.</li>
+        <li><strong>Consistency.</strong> Sessions per week you actually complete.</li>
+        <li><strong>Everyday capacity.</strong> Stairs, groceries, playing with your kids — it all feels easier.</li>
+      </ul>
+
+      <div class="callout">
+        <div>
+          <h4>New to Grounded?</h4>
+          <p>Your first class is on us. Come see what honest training feels like.</p>
+        </div>
+        <a href="https://www.groundedfitnessacadiana.com/get-started" class="btn">Book a Free Intro</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="endcta">
+    <div class="inner">
+      <h3>Ready to Put in the Work?</h3>
+      <p>Real coaching. Real community. Real strength for real life in Lafayette.</p>
+      <a href="https://www.groundedfitnessacadiana.com/get-started" class="btn">Start with a Free Intro</a>
+    </div>
+  </div>
+</article>
+
+<!-- GLOBAL FOOTER (Replaced by Duda in production) -->
+<footer class="site-footer">
+  <div class="wrap">
+    <h4>Grounded Fitness Acadiana</h4>
+    <p>3030 W Pinhook Rd, Lafayette, LA 70508</p>
+    <p><a href="tel:+13375551234">(337) 555-1234</a> &nbsp;|&nbsp; <a href="mailto:info@groundedfitnessacadiana.com">info@groundedfitnessacadiana.com</a></p>
+    <div class="footer-divider"></div>
+    <p>&copy; 2026 Grounded Fitness Acadiana. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
